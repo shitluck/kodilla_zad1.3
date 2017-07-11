@@ -7,15 +7,16 @@ process.stdin.on('readable', function() {
         switch (instruction) {
             case '/exit':
                 process.stdout.write('Quitting app!\n');
+                process.exit();
                 break;
             case '/version':
                 console.log(process.version);
                 break;
             case '/language':
-                console.log(process.env);
+                console.log(process.env.LANG);
                 break;
             default:
                 process.stderr.write('Wrong instruction!\n');
-        }
+        };
     }
 });
